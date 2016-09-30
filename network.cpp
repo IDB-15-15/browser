@@ -41,19 +41,21 @@ std::string geth(std::string site){
                         for (int i=0; i<=4;i++){
                             std::getline(stream,line1);
 
-                        }
-                       string redirect;
-                       std::getline(stream,redirect);
-
-
-                      cout<<redirect;
+                           }
+                        string redirect;
+                        std::getline(stream,redirect);
+                        std::stringstream res_stream(redirect);
+                        res_stream>>redirect;
+                        res_stream>>redirect;
+                       /* cout<<redirect;*/
+                        return geth(redirect);
                     }
 
+                    else{
+                        std::ostringstream ss;
+                        string res;
+                        ss << stream.rdbuf();
+                        res=ss.str();
+                        return res;}
 
-    std::ostringstream ss;
-    string res;
-    ss << stream.rdbuf();
-    res=ss.str();
-    return res;
-
-};
+}
