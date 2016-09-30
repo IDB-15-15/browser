@@ -27,8 +27,33 @@ std::string geth(std::string site){
 
     stream.flush();
 
-    std::string line1;
-    std::getline(stream,line1);
+    std::string* heade;
+    std::string check="rrrrr";
+    int i=0;
+    std::cout<<check;
+    while(check!=""){
+    std::getline(stream, check);
+    heade[i]=check;
+    std::cout<<check;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   /* std::getline(stream,line1);
 
             std::stringstream response_stream(line1);
                     std::string http_version;
@@ -47,15 +72,15 @@ std::string geth(std::string site){
                         std::stringstream res_stream(redirect);
                         res_stream>>redirect;
                         res_stream>>redirect;
-                       /* cout<<redirect;*/
+                       // cout<<redirect;
                         return geth(redirect);
                     }
 
-                    else{
+                    else{*/
                         std::ostringstream ss;
                         string res;
                         ss << stream.rdbuf();
                         res=ss.str();
-                        return res;}
+                        return res;//}
 
 }
