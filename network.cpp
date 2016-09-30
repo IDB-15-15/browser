@@ -24,13 +24,36 @@ std::string geth(std::string site){
     stream << "\r\n";
     stream << "Accept: */*\r\n";
     stream << "Connection: close\r\n\r\n";
+
     stream.flush();
+
+    std::string line1;
+    std::getline(stream,line1);
+
+            std::stringstream response_stream(line1);
+                    std::string http_version;
+                    response_stream >> http_version;
+                    unsigned int status_code;
+                    response_stream >> status_code;
+                    std::string status_message;
+                    std::getline(response_stream,status_message);
+                    if ((status_code>=300&&status_code<=303)||status_code==305){
+                        for (int i=0; i<=4;i++){
+                            std::getline(stream,line1);
+
+                        }
+                       string redirect;
+                       std::getline(stream,redirect);
+
+
+                      cout<<redirect;
+                    }
+
 
     std::ostringstream ss;
     string res;
     ss << stream.rdbuf();
     res=ss.str();
-
     return res;
 
 };
