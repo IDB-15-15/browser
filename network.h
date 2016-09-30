@@ -3,8 +3,11 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
 
-std::string geth(std::string site);
+
+std::vector<std::string> geth(std::string site);
+
 
 #endif // NETWORK
 
