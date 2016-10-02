@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-int main(){
-	
-	return 0;
-}
-=======
+
 #include <iostream>
 #include <boost/asio.hpp>
 #include <string>
@@ -11,17 +6,30 @@ int main(){
 #include <vector>
 
 using namespace boost::asio;
+using namespace std;
 
-int main(int argc, char *argv[])
+int main()
 {
-   std::string site = "http://ukrnews.com/";
-   std::vector<std::string> res;
-   //std::cout<<site;
+   std::string site = "http://localhost/dsad";
+   vector<string> res;
+   vector<string> header;
+   vector<string> main;
    res=geth(site);
-   //std::cout<<res;
-     for (int i= 0; i!=res.size(); i++){
-         std::cout<<res[i]<<std::endl;
-     }
+   int i = 0;
+   int k = 0;
+    while(res[i] != "\r" && res[i+1] != "\r"){
+        i++;
+        header.push_back(res[k]);
+        k++;
+    }
+    while(k != res.size()-1){
+        main.push_back(res[k]);
+        k++;
+    }
+  for(i = 0;i<header.size();i++)
+        cout<<header[i]<<endl;
+  for(i = 0;i<main.size();i++)
+        cout<<main[i]<<endl;
+    return 0;
 }
 
->>>>>>> dcdf3736686ad1f24101157f0b4eec28d38588d9
