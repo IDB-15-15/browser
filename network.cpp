@@ -9,17 +9,26 @@
 using namespace boost::asio;
 using namespace std;
 
+
+
 vector<string> geth(std::string site){
 
     ip::tcp::iostream stream;
-    stream.expires_from_now(boost::posix_time::seconds(60));
+    stream.expires_from_now(boost::posix_time::seconds(10));
     site.erase(0,7);
+
 
     std::string::size_type sl = site.find('/');
     int pl = (int)sl;
     string page(site.substr(sl));
     site.erase(pl,site.length());
     stream.connect(site, "http");
+//Ethernet check
+    if (!stream)
+    {
+      std::cout << "Error: " << stream.error().message() << std::endl;
+    }
+
     stream << "GET ";
     stream << page;
     stream << " HTTP/1.0\r\n";
