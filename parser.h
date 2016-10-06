@@ -9,6 +9,7 @@ using namespace std;
 class parser
 {
 public:
+
     struct Attr{
         string name;
         string value;
@@ -24,7 +25,8 @@ public:
         Tag* tag;
         string* text;
     };
-    vector<string> pars(string s, int mode);
+    vector<string> pars(string s);
+    string del_spaces(string s);
 };
 
 #endif // PARSER_H
