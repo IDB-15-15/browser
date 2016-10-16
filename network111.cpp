@@ -90,6 +90,7 @@ vector<string> geth(std::string site){
     res.push_back("\r\n");
     res.push_back("dadadad");
     /*if (site.find(http)!=site.npos) */return httpg(site);
+	// ывлтплывтп
 
 
 }
